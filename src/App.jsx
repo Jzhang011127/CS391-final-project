@@ -2,7 +2,7 @@ import Header from './components/Header.jsx'
 import {createBrowserRouter, Route, RouterProvider, Routes} from "react-router-dom";
 import APODComponent from './components/APODComponent';
 import styled from 'styled-components';
-
+//modifications by James Zhang
 import UserActivity from "./components/UserActivity.jsx";
 import CommentsPage from "./components/CommentsPage.jsx";
 import {useContext} from "react";
