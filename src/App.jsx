@@ -1,4 +1,4 @@
-//Ruoqi Yang & James Zhang
+//Ruoqi Yang & James Zhang & Michael Won
 import Header from './components/Header.jsx'
 import {createBrowserRouter, Route, RouterProvider, Routes} from "react-router-dom";
 import APODComponent from './components/APODComponent';
@@ -10,7 +10,8 @@ import {useContext} from "react";
 import BackgroundContextProvider, {BackgroundContext} from "./components/BackgroundContextProvider.jsx";
 import HomePage from "./components/HomePage.jsx";
 import UserLogContextProvider from "./components/UserLogContextProvider.jsx";
-import CommentsContextProvider from "./components/CommentsContextProvider.jsx";
+import MarsRoverComponent from './components/MarsRoverComponent.jsx';
+import AsteroidsNeoWsComponent from './components/AsteroidsNeoWsComponent';
 
 
 const StyledApp = styled.div`
@@ -36,12 +37,20 @@ function Root() {
                     element={<APODComponent/>}
                 />
                 <Route
+                    path="/mars-rover/*"
+                    element={<MarsRoverComponent />}
+                />
+                <Route
                     path='/UserAct/*'
                     element={<UserActivity/>}
                 />
                 <Route
                     path='/comments/*'
                     element={<CommentsPage/>}
+                />
+                <Route
+                    path="/asteroids"
+                    element={<AsteroidsNeoWsComponent />}
                 />
             </Routes>
         </StyledRouter>
@@ -54,11 +63,9 @@ function App() {
     return (
         <BackgroundContextProvider>
             <UserLogContextProvider>
-                <CommentsContextProvider>
-                    <StyledApp>
-                        <RouterProvider router={router}/>
-                    </StyledApp>
-                </CommentsContextProvider>
+                <StyledApp>
+                    <RouterProvider router={router}/>
+                </StyledApp>
             </UserLogContextProvider>
         </BackgroundContextProvider>
     );
